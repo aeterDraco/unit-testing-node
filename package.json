@@ -6,6 +6,7 @@
   "scripts": {
     "test": "gulp test",
     "test-all": "gulp test-all",
+    "test-bundle": "browserify -g coffeeify --extension=\".coffee\" -g brfs exercise/test/test-bundle.js -o exercise/test/index.js",
     "lint": "gulp lint",
     "lint-all": "gulp lint-all"
   },
@@ -20,10 +21,13 @@
   "author": "Mike Bland <michael.bland@gsa.gov> (https://18f.gsa.gov/)",
   "license": "CC0-1.0",
   "devDependencies": {
+    "brfs": "^1.4.3",
+    "browserify": "^13.0.1",
     "chai": "^3.4.1",
     "chai-as-promised": "^5.1.0",
     "chai-things": "^0.2.0",
     "coffee-script": "^1.10.0",
+    "coffeeify": "^2.0.1",
     "eslint": "^1.10.3",
     "eslint-plugin-no-unsafe-innerhtml": "^1.0.14",
     "eslint-plugin-scanjs-rules": "^0.1.4",
