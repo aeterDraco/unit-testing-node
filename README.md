@@ -205,12 +205,18 @@ parameter of the [`.eslintrc`](.eslintrc) file.
 If you'd like to contribute to this repository, please follow our
 [CONTRIBUTING guidelines](./CONTRIBUTING.md).
 
-### Public domain
+### Open Source License
 
-This project is in the worldwide [public domain](LICENSE.md). As stated in [CONTRIBUTING](CONTRIBUTING.md):
+This software is made available as [Open Source software][oss-def] under the
+[ISC License][].  For the text of the license, see the [LICENSE](LICENSE.md)
+file.
 
-> This project is in the public domain within the United States, and copyright and related rights in the work worldwide are waived through the [CC0 1.0 Universal public domain dedication](https://creativecommons.org/publicdomain/zero/1.0/).
->
-> All contributions to this project will be released under the CC0
->dedication. By submitting a pull request, you are agreeing to comply
->with this waiver of copyright interest.
+[oss-def]:     https://opensource.org/osd-annotated
+[isc license]: https://www.isc.org/downloads/software-support-policy/isc-license/
+
+### Prior work
+
+This is derived from the original [18F/unit-testing-node][utn-old]
+implementation.
+
+[utn-old]: https://github.com/18F/unit-testing-node
