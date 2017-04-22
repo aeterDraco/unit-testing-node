@@ -25,7 +25,7 @@ module.exports = function(robot) {
       logger);
 
     middleware = function(context, next, done) {
-      impl.execute(context, next, done);
+      impl.execute(context, next, done).catch(function() { });
     };
     middleware.impl = impl;
     robot.receiveMiddleware(middleware);

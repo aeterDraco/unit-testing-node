@@ -142,8 +142,10 @@ describe('Middleware', function() {
 
     it('should ignore messages that do not match', function() {
       delete context.response.message.rawMessage;
-      expect(middleware.execute(context, next, hubotDone)).to.be.undefined;
-      next.calledWith(hubotDone).should.be.true;
+      middleware.execute(context, next, hubotDone)
+        .should.be.rejectedWith(undefined).then(function() {
+          next.calledWith(hubotDone).should.be.true;
+        });
     });
 
     it('should not file another issue for the same message when ' +
@@ -151,20 +153,19 @@ describe('Middleware', function() {
       var result;
 
       result = middleware.execute(context, next, hubotDone);
-      expect(middleware.execute(context, next, hubotDone)).to.eql(undefined,
-        'middleware.execute did not prevent filing a second issue ' +
-        'when one was already in progress');
-
-      return result.should.become(helpers.ISSUE_URL).then(function() {
-        logger.info.args.should.include.something.that.deep.equals(
-          helpers.logArgs('already in progress'));
-
-        // Make another call to ensure that the ID is cleaned up. Normally the
-        // message will have a successReaction after the first successful
-        // request, but we'll test that in another case.
-        return middleware.execute(context, next, hubotDone)
-          .should.become(helpers.ISSUE_URL);
-      });
+      return middleware.execute(context, next, hubotDone)
+        .should.be.rejectedWith(undefined).then(function() {
+          logger.info.args.should.include.something.that.deep.equals(
+            helpers.logArgs('already in progress'));
+          next.calledWith(hubotDone).should.be.true;
+          return result.should.become(helpers.ISSUE_URL).then(function() {
+            // Make another call to ensure that the ID is cleaned up. Normally
+            // the  message will have a successReaction after the first
+            // successful request, but we'll test that in another case.
+            return middleware.execute(context, next, hubotDone)
+              .should.become(helpers.ISSUE_URL);
+          });
+        });
     });
 
     it('should not file another issue for the same message when ' +
@@ -250,7 +251,8 @@ describe('Middleware', function() {
             JSON.stringify(helpers.reactionAddedMessage(), null, 2);
 
       slackClient.getChannelName.throws();
-      expect(middleware.execute(context, next, hubotDone)).to.be.undefined;
+      middleware.execute(context, next, hubotDone)
+        .should.be.rejectedWith(undefined);
       next.calledWith(hubotDone).should.be.true;
       context.response.reply.args.should.eql([[errorMessage]]);
       logger.error.args.should.eql([[null, errorMessage]]);
