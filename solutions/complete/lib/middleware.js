@@ -28,7 +28,8 @@ Middleware.prototype.execute = function(context, next, done) {
         JSON.stringify(context.response.message.rawMessage, null, 2);
     this.logger.error(null, errorMessage);
     context.response.reply(errorMessage);
-    return next(done);
+    next(done);
+    return Promise.reject();
   }
 };
 
@@ -40,13 +41,15 @@ function doExecute(middleware, context, next, done) {
       finish;
 
   if (!rule) {
-    return next(done);
+    next(done);
+    return Promise.reject();
   }
 
   msgId = messageId(message);
   if (middleware.inProgress[msgId]) {
     middleware.logger.info(msgId, 'already in progress');
-    return next(done);
+    next(done);
+    return Promise.reject();
   }
   middleware.inProgress[msgId] = true;
 
