@@ -488,7 +488,8 @@ moving on to the next section.
 
 Now that `findMatchingRule` is in place, let's return to `execute` and begin
 to test it. As a base case, make sure that `execute` calls `next(done)` and
-returns if no rule matches:
+returns an empty rejected `Promise` if no rule matches, to signify that no
+action was taken and no error occurred:
 
 ```js
 Middleware.prototype.execute = function(context, next, done) {
@@ -497,7 +498,8 @@ Middleware.prototype.execute = function(context, next, done) {
       rule = this.findMatchingRule(message);
 
   if (!rule) {
-    return next(done);
+    next(done);
+    return Promise.reject();
   }
   return 'not yet implemented';
 };
@@ -575,8 +577,10 @@ parse a message and file an issue` case:
 ```js
     it('should ignore messages that do not match', function() {
       delete context.response.message.rawMessage;
-      expect(middleware.execute(context, next, hubotDone)).to.be.undefined;
-      next.calledWith(hubotDone).should.be.true;
+      middleware.execute(context, next, hubotDone)
+        .should.be.rejectedWith(undefined).then(function() {;
+          next.calledWith(hubotDone).should.be.true;
+        });
     });
 ```
 
@@ -643,7 +647,8 @@ Middleware.prototype.execute = function(context, next, done) {
       msgId;
 
   if (!rule) {
-    return next(done);
+    next(done);
+    return Promise.reject();
   }
 
   msgId = messageId(message);
@@ -1413,18 +1418,18 @@ should return `undefined`:
 
 ```js
     it('should not file another issue for the same message when ' +
-      'one is in progress', function(done) {
+      'one is in progress', function() {
       var result;
 
       result = middleware.execute(context, next, hubotDone);
-      if (middleware.execute(context, next, hubotDone) !== undefined) {
-        return done(new Error('middleware.execute did not prevent filing a ' +
-          'second issue when one was already in progress'));
-      }
-
-      result.should.become(helpers.ISSUE_URL).then(function() {
-        logger.info.args.should.contain(helpers.logArgs('already in progress'));
-      });
+      return middleware.execute(context, next, hubotDone)
+        .should.be.rejectedWith(undefined).then(function() {
+          return result.should.become(helpers.ISSUE_URL).then(function() {
+            logger.info.args.should.include.something.that.deep.equals(
+              helpers.logArgs('already in progress'));
+            next.calledWith(hubotDone).should.be.true;
+          });
+        });
     });
 ```
 
@@ -1493,7 +1498,8 @@ and add the message ID as a property inside `execute`:
   msgId = messageId(message);
   if (this.inProgress[msgId]) {
     this.logger(msgId, 'already in progress');
-    return next(done);
+    next(done);
+    return Promise.reject();
   }
   this.inProgress[msgId] = true;
 ```
@@ -1583,16 +1589,17 @@ one more `middleware.execute` call _inside the callback_, and return the
 result of the assertion:
 
 ```js
-      result.should.become(helpers.ISSUE_URL).then(function() {
-        logger.info.args.should.include.something.that.deep.equals(
-          helpers.logArgs('already in progress'));
+          return result.should.become(helpers.ISSUE_URL).then(function() {
+            logger.info.args.should.include.something.that.deep.equals(
+              helpers.logArgs('already in progress'));
+            next.calledWith(hubotDone).should.be.true;
 
-        // Make another call to ensure that the ID is cleaned up. Normally the
-        // message will have a successReaction after the first successful
-        // request, but we'll test that in another case.
-        return middleware.execute(context, next, hubotDone)
-          .should.become(helpers.ISSUE_URL);
-      });
+            // Make another call to ensure that the ID is cleaned up. Normally
+            // the message will have a successReaction after the first
+            // successful request, but we'll test that in another case.
+            return middleware.execute(context, next, hubotDone)
+              .should.become(helpers.ISSUE_URL);
+          });
 ```
 
 Again, in frameworks other than Mocha that don't have native `Promise`
@@ -2086,7 +2093,8 @@ Middleware.prototype.execute = function(context, next, done) {
         JSON.stringify(context.response.message.rawMessage, null, 2);
     this.logger.error(null, errorMessage);
     context.response.reply(errorMessage);
-    return next(done);
+    next(done);
+    return Promise.reject();
   }
 };
 ```

@@ -25,6 +25,8 @@ module.exports = function(robot) {
       logger);
 
     middleware = function(context, next, done) {
+      // Catch rejected Promises to avoid the UnhandledPromiseRejectionWarning
+      // in Node.js v6.6.0 and higher.
       impl.execute(context, next, done).catch(function() { });
     };
     middleware.impl = impl;

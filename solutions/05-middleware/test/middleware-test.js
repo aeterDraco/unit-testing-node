@@ -155,12 +155,13 @@ describe('Middleware', function() {
       result = middleware.execute(context, next, hubotDone);
       return middleware.execute(context, next, hubotDone)
         .should.be.rejectedWith(undefined).then(function() {
-          logger.info.args.should.include.something.that.deep.equals(
-            helpers.logArgs('already in progress'));
-          next.calledWith(hubotDone).should.be.true;
           return result.should.become(helpers.ISSUE_URL).then(function() {
+            logger.info.args.should.include.something.that.deep.equals(
+              helpers.logArgs('already in progress'));
+            next.calledWith(hubotDone).should.be.true;
+
             // Make another call to ensure that the ID is cleaned up. Normally
-            // the  message will have a successReaction after the first
+            // the message will have a successReaction after the first
             // successful request, but we'll test that in another case.
             return middleware.execute(context, next, hubotDone)
               .should.become(helpers.ISSUE_URL);
