@@ -1,5 +1,5 @@
 {
-  "githubUser": "18F",
+  "githubUser": "mbland",
   "githubTimeout": 5000,
   "slackTimeout": 5000,
   "successReaction": "heavy_check_mark",
@@ -12,7 +12,7 @@
 
     {
       "reactionName": "smiley",
-      "githubRepository": "hubot-slack-github-issues"
+      "githubRepository": "slack-github-issues"
     },
 
     {

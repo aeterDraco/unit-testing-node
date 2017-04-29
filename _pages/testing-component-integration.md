@@ -141,7 +141,7 @@ happens:
 ```sh
 $ npm test -- --grep '^Integration test '
 
-> 18f-unit-testing-node@0.0.0 test .../unit-testing-node
+> mbland-unit-testing-node@0.0.0 test .../unit-testing-node
 > gulp test "--grep" "^Integration test "
 
 [19:28:42] Using gulpfile .../unit-testing-node/gulpfile.js
@@ -150,8 +150,8 @@ $ npm test -- --grep '^Integration test '
 
   Integration test
     an evergreen_tree reaction to a message
-[Sat Jan 23 2016 19:28:42 GMT-0500 (EST)] INFO 18f-unit-testing-node: reading configuration from config/slack-github-issues.json
-[Sat Jan 23 2016 19:28:42 GMT-0500 (EST)] INFO 18f-unit-testing-node: registered receiveMiddleware
+[Sat Jan 23 2016 19:28:42 GMT-0500 (EST)] INFO mbland-unit-testing-node: reading configuration from config/slack-github-issues.json
+[Sat Jan 23 2016 19:28:42 GMT-0500 (EST)] INFO mbland-unit-testing-node: registered receiveMiddleware
       ✓ should create a GitHub issue
 
 
@@ -244,7 +244,7 @@ Run the test and you should see something like the following:
 ```sh
 $ npm test -- --grep '^Integration test '
 
-> 18f-unit-testing-node@0.0.0 test .../unit-testing-node
+> mbland-unit-testing-node@0.0.0 test .../unit-testing-node
 > gulp test "--grep" "^Integration test "
 
 [19:31:22] Using gulpfile .../unit-testing-node/gulpfile.js
@@ -266,8 +266,8 @@ $ npm test -- --grep '^Integration test '
       + expected - actual
 
       -[
-      -  "[Sat Jan 23 2016 19:31:23 GMT-0500 (EST)] INFO 18f-unit-testing-node: reading configuration from config/slack-github-issues.json\n"
-      -  "[Sat Jan 23 2016 19:31:23 GMT-0500 (EST)] INFO 18f-unit-testing-node: registered receiveMiddleware\n"
+      -  "[Sat Jan 23 2016 19:31:23 GMT-0500 (EST)] INFO mbland-unit-testing-node: reading configuration from config/slack-github-issues.json\n"
+      -  "[Sat Jan 23 2016 19:31:23 GMT-0500 (EST)] INFO mbland-unit-testing-node: registered receiveMiddleware\n"
       -]
       +[]
 
@@ -287,7 +287,7 @@ npm ERR! Test failed.  See above for more details.
 
 Before you update the test to make it pass, notice that the timestamp
 component will change with every test run. Also notice that there's a bit of
-boilerplate—both the `18f-unit-testing-node` prefix and the newline at the
+boilerplate—both the `mbland-unit-testing-node` prefix and the newline at the
 end.
 
 Rather than hardcode all of this into the test data, write a `LogHelper`
@@ -332,7 +332,7 @@ Run the tests again, and now you should see this:
 ```sh
 $ npm test -- --grep '^Integration test '
 
-> 18f-unit-testing-node@0.0.0 test .../unit-testing-node
+> mbland-unit-testing-node@0.0.0 test .../unit-testing-node
 > gulp test "--grep" "^Integration test "
 
 [19:35:03] Using .../unit-testing-node/gulpfile.js
@@ -397,8 +397,8 @@ describe('Integration test', function() {
 
   before(function() {
     apiStubServer = new ApiStubServer();
-    process.env.HUBOT_SLACK_TOKEN = '<18F-github-token>';
-    process.env.HUBOT_GITHUB_TOKEN = '<18F-github-token>';
+    process.env.HUBOT_SLACK_TOKEN = '<mbland-github-token>';
+    process.env.HUBOT_GITHUB_TOKEN = '<mbland-github-token>';
   });
 
   after(function() {
@@ -426,8 +426,8 @@ describe('Integration test', function() {
 
   before(function() {
     apiStubServer = new ApiStubServer();
-    process.env.HUBOT_SLACK_TOKEN = '<18F-github-token>';
-    process.env.HUBOT_GITHUB_TOKEN = '<18F-github-token>';
+    process.env.HUBOT_SLACK_TOKEN = '<mbland-github-token>';
+    process.env.HUBOT_GITHUB_TOKEN = '<mbland-github-token>';
     config = helpers.baseConfig();
     config.slackApiBaseUrl = apiStubServer.address() + '/slack/';
     config.githubApiBaseUrl = apiStubServer.address() + '/github/';
@@ -453,8 +453,8 @@ Add a `done` callback to the `before` callback, and then add a call to
 ```js
   before(function(done) {
     apiStubServer = new ApiStubServer();
-    process.env.HUBOT_SLACK_TOKEN = '<18F-github-token>';
-    process.env.HUBOT_GITHUB_TOKEN = '<18F-github-token>';
+    process.env.HUBOT_SLACK_TOKEN = '<mbland-github-token>';
+    process.env.HUBOT_GITHUB_TOKEN = '<mbland-github-token>';
     config = helpers.baseConfig();
     config.slackApiBaseUrl = apiStubServer.address() + '/slack/';
     config.githubApiBaseUrl = apiStubServer.address() + '/github/';
@@ -527,7 +527,7 @@ and `GitHubClient` tests:
         statusCode: 200,
         payload: helpers.messageWithReactions()
       },
-      '/github/repos/18F/handbook/issues': {
+      '/github/repos/mbland/handbook/issues': {
         expectedParams: {
           title: metadata.title,
           body: metadata.url
@@ -558,7 +558,7 @@ Let's stop and run our tests again to make sure they still pass:
 ```sh
 $ npm test -- --grep '^Integration test '
 
-> 18f-unit-testing-node@0.0.0 test .../unit-testing-node
+> mbland-unit-testing-node@0.0.0 test .../unit-testing-node
 > gulp test "--grep" "^Integration test "
 
 [19:43:26] Using gulpfile .../unit-testing-node/gulpfile.js
@@ -580,7 +580,7 @@ $ npm test -- --grep '^Integration test '
       + expected - actual
 
        [
-      -  "INFO reading configuration from .../18f-unit-testing-node-integration-test-config-116023-52840-1jwmn06"
+      -  "INFO reading configuration from .../mbland-unit-testing-node-integration-test-config-116023-52840-1jwmn06"
       +  "INFO reading configuration from config/slack-github-issues.json"
          "INFO registered receiveMiddleware"
        ]
@@ -628,7 +628,7 @@ Write the following to a new test helper file,
 
 ```json
 {
-  "githubUser": "18F",
+  "githubUser": "mbland",
   "githubTimeout": 5000,
   "slackTimeout": 5000,
   "successReaction": "heavy_check_mark"
@@ -664,7 +664,7 @@ Now run the test and see what happens:
 ```sh
 $ npm test -- --grep '^Integration '
 
-> 18f-unit-testing-node@0.0.0 test .../unit-testing-node
+> mbland-unit-testing-node@0.0.0 test .../unit-testing-node
 > gulp test "--grep" "^Integration "
 
 [14:08:23] Using gulpfile .../unit-testing-node/gulpfile.js
@@ -673,7 +673,7 @@ $ npm test -- --grep '^Integration '
 
   Integration test
     ✓ should successfully load the application script
-[Sun Jan 24 2016 14:08:23 GMT-0500 (EST)] INFO 18f-unit-testing-node: reading configuration from .../unit-testing-node/exercise/test/helpers/test-config-invalid.json
+[Sun Jan 24 2016 14:08:23 GMT-0500 (EST)] INFO mbland-unit-testing-node: reading configuration from .../unit-testing-node/exercise/test/helpers/test-config-invalid.json
 [Sun Jan 24 2016 14:08:23 GMT-0500 (EST)] ERROR Unable to load .../unit-testing-node/exercise/scripts/slack-github-issues: Error: Invalid configuration:
   missing rules
   at validate (.../unit-testing-node/exercise/lib/config.js:58:11)
@@ -722,7 +722,7 @@ output:
 ```sh
 $ npm test -- --grep '^Integration test '
 
-> 18f-unit-testing-node@0.0.0 test .../unit-testing-node
+> mbland-unit-testing-node@0.0.0 test .../unit-testing-node
 > gulp test "--grep" "^Integration test "
 
 [11:25:37] Using gulpfile .../unit-testing-node/gulpfile.js
@@ -731,7 +731,7 @@ $ npm test -- --grep '^Integration test '
 
   Integration test
     ✓ should successfully load the application script
-[Sun Jan 24 2016 14:11:08 GMT-0500 (EST)] INFO 18f-unit-testing-node: reading configuration from .../unit-testing-node/exercise/test/helpers/test-config-invalid.json
+[Sun Jan 24 2016 14:11:08 GMT-0500 (EST)] INFO mbland-unit-testing-node: reading configuration from .../unit-testing-node/exercise/test/helpers/test-config-invalid.json
     ✓ should not register if the config file is invalid
     an evergreen_tree reaction to a message
       ✓ should create a GitHub issue
@@ -757,7 +757,7 @@ Run the test again, and _now_ we see:
 ```sh
 $ npm test -- --grep '^Integration '
 
-> 18f-unit-testing-node@0.0.0 test .../unit-testing-node
+> mbland-unit-testing-node@0.0.0 test .../unit-testing-node
 > gulp test "--grep" "^Integration "
 
 [13:34:22] Using gulpfile .../unit-testing-node/gulpfile.js
@@ -766,8 +766,8 @@ $ npm test -- --grep '^Integration '
 
   Integration test
     ✓ should successfully load the application script
-[Sun Jan 24 2016 14:11:37 GMT-0500 (EST)] INFO 18f-unit-testing-node: reading configuration from .../unit-testing-node/exercise/test/helpers/test-config-invalid.json
-[Sun Jan 24 2016 14:11:37 GMT-0500 (EST)] ERROR 18f-unit-testing-node: receiveMiddleware registration failed: Invalid configuration:
+[Sun Jan 24 2016 14:11:37 GMT-0500 (EST)] INFO mbland-unit-testing-node: reading configuration from .../unit-testing-node/exercise/test/helpers/test-config-invalid.json
+[Sun Jan 24 2016 14:11:37 GMT-0500 (EST)] ERROR mbland-unit-testing-node: receiveMiddleware registration failed: Invalid configuration:
   missing rules
     ✓ should not register if the config file is invalid
     an evergreen_tree reaction to a message
@@ -914,7 +914,7 @@ Try running the test as is to see what happens:
 ```sh
 $ npm test -- --grep '^Integration '
 
-> 18f-unit-testing-node@0.0.0 test .../unit-testing-node
+> mbland-unit-testing-node@0.0.0 test .../unit-testing-node
 > gulp test "--grep" "^Integration "
 
 [17:17:28] Using gulpfile .../unit-testing-node/gulpfile.js
@@ -1005,7 +1005,7 @@ hook:
       getChannelByID: function() {
         return { name: 'handbook' };
       },
-      team: { domain: '18f' }
+      team: { domain: 'mbland' }
     };
     apiStubServer.urlsToResponses = apiServerDefaults();
 ```
@@ -1021,7 +1021,7 @@ Run the test now and watch what happens:
 ```sh
 $ npm test -- --grep '^Integration '
 
-> 18f-unit-testing-node@0.0.0 test .../unit-testing-node
+> mbland-unit-testing-node@0.0.0 test .../unit-testing-node
 > gulp test "--grep" "^Integration "
 
 [17:21:16] Using gulpfile .../unit-testing-node/gulpfile.js
@@ -1031,11 +1031,11 @@ $ npm test -- --grep '^Integration '
   Integration test
     ✓ should successfully load the application script
     ✓ should not register if the config file is invalid
-[Sun Jan 24 2016 17:21:16 GMT-0500 (EST)] INFO 18f-unit-testing-node: C5150OU812:1360782804.083113: matches rule: Rule { reactionName: 'evergreen_tree', githubRepository: 'handbook' }
-[Sun Jan 24 2016 17:21:16 GMT-0500 (EST)] INFO 18f-unit-testing-node: C5150OU812:1360782804.083113: getting reactions for https://18f.slack.com/archives/handbook/p1360782804083113
-[Sun Jan 24 2016 17:21:16 GMT-0500 (EST)] INFO 18f-unit-testing-node: C5150OU812:1360782804.083113: making GitHub request for https://18f.slack.com/archives/handbook/p1360782804083113
-[Sun Jan 24 2016 17:21:16 GMT-0500 (EST)] INFO 18f-unit-testing-node: C5150OU812:1360782804.083113: adding heavy_check_mark
-[Sun Jan 24 2016 17:21:16 GMT-0500 (EST)] INFO 18f-unit-testing-node: C5150OU812:1360782804.083113: created: https://github.com/18F/handbook/issues/1
+[Sun Jan 24 2016 17:21:16 GMT-0500 (EST)] INFO mbland-unit-testing-node: C5150OU812:1360782804.083113: matches rule: Rule { reactionName: 'evergreen_tree', githubRepository: 'handbook' }
+[Sun Jan 24 2016 17:21:16 GMT-0500 (EST)] INFO mbland-unit-testing-node: C5150OU812:1360782804.083113: getting reactions for https://mbland.slack.com/archives/handbook/p1360782804083113
+[Sun Jan 24 2016 17:21:16 GMT-0500 (EST)] INFO mbland-unit-testing-node: C5150OU812:1360782804.083113: making GitHub request for https://mbland.slack.com/archives/handbook/p1360782804083113
+[Sun Jan 24 2016 17:21:16 GMT-0500 (EST)] INFO mbland-unit-testing-node: C5150OU812:1360782804.083113: adding heavy_check_mark
+[Sun Jan 24 2016 17:21:16 GMT-0500 (EST)] INFO mbland-unit-testing-node: C5150OU812:1360782804.083113: created: https://github.com/mbland/handbook/issues/1
     ✓ should create a GitHub issue given a valid reaction (54ms)
 
 
@@ -1152,7 +1152,7 @@ Run the test to see what you're in for:
 ```sh
 $ npm test -- --grep '^Integration '
 
-> 18f-unit-testing-node@0.0.0 test .../unit-testing-node
+> mbland-unit-testing-node@0.0.0 test .../unit-testing-node
 > gulp test "--grep" "^Integration "
 
 [17:25:14] Using gulpfile .../unit-testing-node/gulpfile.js
@@ -1174,13 +1174,13 @@ $ npm test -- --grep '^Integration '
       + expected - actual
 
       -[
-      -  "INFO reading configuration from /var/folders/kr/qnjc102n0wg_b89_g0jsfbnh0000gp/T/18f-unit-testing-node-integration-test-config-116024-65738-1ip6jz6"
+      -  "INFO reading configuration from /var/folders/kr/qnjc102n0wg_b89_g0jsfbnh0000gp/T/mbland-unit-testing-node-integration-test-config-116024-65738-1ip6jz6"
       -  "INFO registered receiveMiddleware"
       -  "INFO C5150OU812:1360782804.083113: matches rule: Rule { reactionName: 'evergreen_tree', githubRepository: 'handbook' }"
-      -  "INFO C5150OU812:1360782804.083113: getting reactions for https://18f.slack.com/archives/handbook/p1360782804083113"
-      -  "INFO C5150OU812:1360782804.083113: making GitHub request for https://18f.slack.com/archives/handbook/p1360782804083113"
+      -  "INFO C5150OU812:1360782804.083113: getting reactions for https://mbland.slack.com/archives/handbook/p1360782804083113"
+      -  "INFO C5150OU812:1360782804.083113: making GitHub request for https://mbland.slack.com/archives/handbook/p1360782804083113"
       -  "INFO C5150OU812:1360782804.083113: adding heavy_check_mark"
-      -  "INFO C5150OU812:1360782804.083113: created: https://github.com/18F/handbook/issues/1"
+      -  "INFO C5150OU812:1360782804.083113: created: https://github.com/mbland/handbook/issues/1"
       -]
       +[]
 
@@ -1292,7 +1292,7 @@ fails. Start a new test case as follows:
 ```js
   it('should fail to create a GitHub issue', function(done) {
     var payload = { message: 'test failure' },
-        url = '/github/repos/18F/handbook/issues',
+        url = '/github/repos/mbland/handbook/issues',
         response = apiStubServer.urlsToResponses[url];
 
     response.statusCode = 500;
@@ -1338,7 +1338,7 @@ replace both the `logHelper.beginCapture` calls and the
 
   it('should fail to create a GitHub issue', function(done) {
     var payload = { message: 'test failure' },
-        url = '/github/repos/18F/handbook/issues',
+        url = '/github/repos/mbland/handbook/issues',
         response = apiStubServer.urlsToResponses[url];
 
     response.statusCode = 500;
@@ -1356,7 +1356,7 @@ reply and declare a variable to hold the expected log messages:
 ```js
     sendReaction(helpers.REACTION).should.be.fulfilled.then(function() {
       var errorReply = 'failed to create a GitHub issue in ' +
-            '18F/handbook: received 500 response from GitHub API: ' +
+            'mbland/handbook: received 500 response from GitHub API: ' +
             JSON.stringify(payload),
           logMessages;
     }).should.notify(done);
@@ -1450,7 +1450,7 @@ By this point, all of the integration tests should be passing:
 ```sh
 $ npm test -- --grep '^Integration '
 
-> 18f-unit-testing-node@0.0.0 test .../unit-testing-node
+> mbland-unit-testing-node@0.0.0 test .../unit-testing-node
 > gulp test "--grep" "^Integration "
 
 [19:23:53] Using gulpfile .../unit-testing-node/gulpfile.js

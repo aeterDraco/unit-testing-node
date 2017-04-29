@@ -20,7 +20,7 @@ describe('SlackClient', function() {
     config.slackApiBaseUrl = slackApiServer.address() + '/api/';
     slackClient = new SlackClient(undefined, config);
 
-    slackToken = '<18F-slack-api-token>';
+    slackToken = '<mbland-slack-api-token>';
     process.env.HUBOT_SLACK_TOKEN = slackToken;
   });
 

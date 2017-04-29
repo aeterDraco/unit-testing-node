@@ -112,7 +112,7 @@ describe('Middleware', function() {
       logger = sinon.stub(logger);
 
       slackClient.getChannelName.returns('handbook');
-      slackClient.getTeamDomain.returns('18f');
+      slackClient.getTeamDomain.returns('mbland');
 
       slackClient.getReactions
         .returns(Promise.resolve(helpers.messageWithReactions()));
@@ -215,8 +215,8 @@ describe('Middleware', function() {
     });
 
     it('should get reactions but fail to file an issue', function() {
-      var errorMessage = 'failed to create a GitHub issue in 18F/handbook: ' +
-        'test failure';
+      var errorMessage = 'failed to create a GitHub issue in mbland/handbook:' +
+        ' test failure';
 
       githubClient.fileNewIssue
         .returns(Promise.reject(new Error('test failure')));

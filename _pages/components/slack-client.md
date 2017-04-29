@@ -123,7 +123,7 @@ Again, to run just the `Rule` tests:
 ```sh
 $ npm test -- --grep '^Rule '
 
-> 18f-unit-testing-node@0.0.0 test .../unit-testing-node
+> mbland-unit-testing-node@0.0.0 test .../unit-testing-node
 > gulp test "--grep" "^Rule "
 
 [19:38:39] Using gulpfile .../unit-testing-node/gulpfile.js
@@ -179,7 +179,7 @@ Now when you run the tests, you should see the following failures:
 ```sh
 $ npm test -- --grep '^Rule '
 
-> 18f-unit-testing-node@0.0.0 test .../unit-testing-node
+> mbland-unit-testing-node@0.0.0 test .../unit-testing-node
 > gulp test "--grep" "^Rule "
 
 [14:02:27] Using gulpfile .../unit-testing-node/gulpfile.js
@@ -691,7 +691,7 @@ Now run just the `SlackClient` tests:
 ```sh
 $ npm test -- --grep '^SlackClient '
 
-> 18f-unit-testing-node@0.0.0 test .../unit-testing-node
+> mbland-unit-testing-node@0.0.0 test .../unit-testing-node
 > gulp test "--grep" "^SlackClient "
 
 [13:46:11] Using gulpfile .../unit-testing-node/gulpfile.js
@@ -843,7 +843,7 @@ At this point, run our test:
 ```sh
 $ npm test -- --grep '^SlackClient '
 
-> 18f-unit-testing-node@0.0.0 test .../unit-testing-node
+> mbland-unit-testing-node@0.0.0 test .../unit-testing-node
 > gulp test "--grep" "^SlackClient "
 
 [14:46:26] Using gulpfile .../unit-testing-node/gulpfile.js
@@ -885,7 +885,7 @@ run the test to see what happens:
 ```sh
 $ npm test -- --grep '^SlackClient '
 
-> 18f-unit-testing-node@0.0.0 test .../unit-testing-node
+> mbland-unit-testing-node@0.0.0 test .../unit-testing-node
 > gulp test "--grep" "^SlackClient "
 
 [14:48:37] Using gulpfile .../unit-testing-node/gulpfile.js
@@ -1095,7 +1095,7 @@ declare a `slackToken` variable at the top of the fixture, then add the
 following to the `before` callback:
 
 ```js
-    slackToken = '<18F-slack-api-token>';
+    slackToken = '<mbland-slack-api-token>';
     process.env.HUBOT_SLACK_TOKEN = slackToken;
 ```
 
@@ -1134,11 +1134,11 @@ Now confirm that our tests both pass:
 ```sh
 $ npm test -- --grep '^SlackClient '
 
-> 18f-unit-testing-node@0.0.0 test
-> /Users/michaelbland/src/18F/unit-testing-node
+> mbland-unit-testing-node@0.0.0 test
+> /Users/mbland/src/mbland/unit-testing-node
 > gulp test "--grep" "^SlackClient "
 
-[10:48:36] Using gulpfile ~/src/18F/unit-testing-node/gulpfile.js
+[10:48:36] Using gulpfile ~/src/mbland/unit-testing-node/gulpfile.js
 [10:48:36] Starting 'test'...
 
 
@@ -1157,7 +1157,7 @@ down:
      'failed to make Slack API request for method reactions.get:' but got
      'Error: received 500 response from Slack API method reactions.get:
      unexpected URL:
-     /api/reactions.get?channel=C5150OU812&timestamp=1360782804.083113&token=%3C18F-slack-api-token%3E'
+     /api/reactions.get?channel=C5150OU812&timestamp=1360782804.083113&token=%3Cmbland-slack-api-token%3E'
 
 
 
@@ -1192,7 +1192,7 @@ Now confirm that our tests both pass:
 ```sh
 $ npm test -- --grep '^SlackClient '
 
-> 18f-unit-testing-node@0.0.0 test .../unit-testing-node
+> mbland-unit-testing-node@0.0.0 test .../unit-testing-node
 > gulp test "--grep" "^SlackClient "
 
 [16:02:37] Using gulpfile .../unit-testing-node/gulpfile.js
@@ -1324,7 +1324,7 @@ By this point, all of the `SlackClient` tests should be passing:
 ```sh
 $ npm test -- --grep '^SlackClient '
 
-> 18f-unit-testing-node@0.0.0 test .../unit-testing-node
+> mbland-unit-testing-node@0.0.0 test .../unit-testing-node
 > gulp test "--grep" "^SlackClient "
 
 [11:17:19] Using gulpfile .../unit-testing-node/gulpfile.js

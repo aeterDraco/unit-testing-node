@@ -1,12 +1,11 @@
 ---
 title: Designing the application
 ---
-The server is based on a real-world application, [the Slack bot 18F uses to
-open new GitHub issues](https://github.com/18F/hubot-slack-github-issues).
-This application uses the [Hubot](https://www.npmjs.com/package/hubot)
-framework and will act as a plugin for the [18F Slack bot
-implementation](https://github.com/18F/18f-bot).  The high-level flow for the
-application is:
+The server is based on a real-world application, [a Slack bot used to
+open new GitHub issues](https://github.com/mbland/slack-github-issues).
+This application was originally written for the
+[Hubot](https://www.npmjs.com/package/hubot) framework, but has been updated to
+work with any bot framework. The high-level flow for the application is:
 
 1. A team member adds an [emoji
    reaction](https://get.slack.help/hc/en1.us/articles/206870317-Emoji-reactions)

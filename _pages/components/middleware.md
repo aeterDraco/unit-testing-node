@@ -421,7 +421,7 @@ contains:
 
     {
       "reactionName": "smiley",
-      "githubRepository": "hubot-slack-github-issues"
+      "githubRepository": "slack-github-issues"
     },
 
     {
@@ -438,7 +438,7 @@ findMatchingRule '` and you should see the following:
 ```sh
 $ npm test -- --grep ' findMatchingRule '
 
-> 18f-unit-testing-node@0.0.0 test
+> mbland-unit-testing-node@0.0.0 test
 > .../unit-testing-node
 > gulp test "--grep" " findMatchingRule "
 
@@ -994,7 +994,7 @@ update your `execute` test fixture:
       logger = sinon.stub(logger);
 
       slackClient.getChannelName.returns('handbook');
-      slackClient.getTeamDomain.returns('18f');
+      slackClient.getTeamDomain.returns('mbland');
 
       slackClient.getReactions
         .returns(Promise.resolve(helpers.messageWithReactions()));
@@ -1004,7 +1004,7 @@ update your `execute` test fixture:
     });
 ```
 
-*Note:* `slackClient.getTeamDomain` returns a _lowercased_ "18f" to match
+*Note:* `slackClient.getTeamDomain` returns a _lowercased_ "mbland" to match
 `helpers.PERMALINK`.
 
 The most notable update here is that you're stubbing the `slackClient`,
@@ -1113,7 +1113,7 @@ Finally, verify that your new test passes:
 ```sh
 $ npm test -- --grep ' execute '
 
-> 18f-unit-testing-node@0.0.0 test .../unit-testing-node
+> mbland-unit-testing-node@0.0.0 test .../unit-testing-node
 > gulp test "--grep" " execute "
 
 [10:04:03] Using gulpfile .../unit-testing-node/gulpfile.js
@@ -1158,7 +1158,7 @@ Your test should fail with the following:
 ```sh
 $ npm test -- --grep ' execute '
 
-> 18f-unit-testing-node@0.0.0 test .../unit-testing-node
+> mbland-unit-testing-node@0.0.0 test .../unit-testing-node
 > gulp test "--grep" " execute "
 
 [11:09:39] Using gulpfile .../unit-testing-node/gulpfile.js
@@ -1182,7 +1182,7 @@ $ npm test -- --grep ' execute '
       -[]
       +[
       +  [
-      +    "created: https://github.com/18F/handbook/issues/1"
+      +    "created: https://github.com/mbland/handbook/issues/1"
       +  ]
       +]
 
@@ -1277,7 +1277,7 @@ output:
 ```sh
 $ npm test -- --grep ' execute '
 
-> 18f-unit-testing-node@0.0.0 test
+> mbland-unit-testing-node@0.0.0 test
 > .../unit-testing-node
 > gulp test "--grep" " execute "
 
@@ -1303,12 +1303,12 @@ $ npm test -- --grep ' execute '
       -  [
       -    "C5150OU812:1360782804.083113"
       -    "getting reactions for"
-      -    "https://18F.slack.com/archives/handbook/p1360782804083113"
+      -    "https://mbland.slack.com/archives/handbook/p1360782804083113"
       -  ]
       -  [
       -    "C5150OU812:1360782804.083113"
       -    "making GitHub request for"
-      -    "https://18f.slack.com/archives/handbook/p1360782804083113"
+      -    "https://mbland.slack.com/archives/handbook/p1360782804083113"
       -  ]
       -  [
       -    "C5150OU812:1360782804.083113"
@@ -1444,7 +1444,7 @@ test and make sure it fails:
 ```sh
 $ npm test -- --grep ' execute '
 
-> 18f-unit-testing-node@0.0.0 test
+> mbland-unit-testing-node@0.0.0 test
 > .../unit-testing-node
 > gulp test "--grep" " execute "
 
@@ -1514,7 +1514,7 @@ Run the test again. You should see the following:
 ```sh
 $ npm test -- --grep ' execute '
 
-> 18f-unit-testing-node@0.0.0 test
+> mbland-unit-testing-node@0.0.0 test
 > .../unit-testing-node
 > gulp test "--grep" " execute "
 
@@ -1620,7 +1620,7 @@ Running this test right away should result in a failure due to a timeout:
 ```sh
 $ npm test -- --grep ' execute '
 
-> 18f-unit-testing-node@0.0.0 test .../unit-testing-node
+> mbland-unit-testing-node@0.0.0 test .../unit-testing-node
 > gulp test "--grep" " execute "
 
 [10:20:43] Using gulpfile .../unit-testing-node/gulpfile.js
@@ -1736,7 +1736,7 @@ expected a short circuit to resolve to `undefined`:
 ```sh
 $ npm test -- --grep ' execute '
 
-> 18f-unit-testing-node@0.0.0 test .../unit-testing-node
+> mbland-unit-testing-node@0.0.0 test .../unit-testing-node
 > gulp test "--grep" " execute "
 
 [11:39:03] Using gulpfile .../unit-testing-node/gulpfile.js
@@ -1760,7 +1760,7 @@ already filed
 when one is already filed :
      AssertionError: expected promise to be rejected with an error including
 'already processed' but it was fulfilled with
-'https://github.com/18F/handbook/issues/1'
+'https://github.com/mbland/handbook/issues/1'
 
 
 
@@ -1862,7 +1862,7 @@ Run the test to see what shakes out:
 ```sh
 $ npm test -- --grep ' execute '
 
-> 18f-unit-testing-node@0.0.0 test .../unit-testing-node
+> mbland-unit-testing-node@0.0.0 test .../unit-testing-node
 > gulp test "--grep" " execute "
 
 [17:16:31] Using gulpfile .../unit-testing-node/gulpfile.js
@@ -1939,8 +1939,8 @@ fails. It is nearly identical to the previous one except that
 
 ```js
     it('should get reactions but fail to file an issue', function() {
-      var errorMessage = 'failed to create a GitHub issue in 18F/handbook: ' +
-        'test failure';
+      var errorMessage = 'failed to create a GitHub issue in mbland/handbook:' +
+        ' test failure';
 
       githubClient.fileNewIssue
         .returns(Promise.reject(new Error('test failure')));
@@ -2106,7 +2106,7 @@ By this point, all of the `Middleware` tests should be passing:
 ```sh
 $ npm test -- --grep '^Middleware '
 
-> 18f-unit-testing-node@0.0.0 test .../unit-testing-node
+> mbland-unit-testing-node@0.0.0 test .../unit-testing-node
 > gulp test "--grep" "^Middleware "
 
 [19:16:06] Using gulpfile .../unit-testing-node/gulpfile.js

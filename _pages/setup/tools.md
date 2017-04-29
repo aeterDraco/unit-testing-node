@@ -15,12 +15,10 @@ $ npm install gulp gulp-mocha --save-dev
 ```
 
 It's also good practice to apply a linting tool such as
-[ESLint](http://eslint.org/), per the
-[18F Compliance Toolkit](https://github.com/18F/compliance-toolkit) and the
-[18F Before you ship guide](https://pages.18f.gov/before-you-ship/security/static-analysis/#javascript).
-See the [ESLint configuration user guide](http://eslint.org/docs/user-guide/configuring)
-and [ESLint rules guide](http://eslint.org/docs/rules/) for details on each
-parameter of the `.eslintrc` file.
+[ESLint](http://eslint.org/).  See the [ESLint configuration user
+guide](http://eslint.org/docs/user-guide/configuring) and [ESLint rules
+guide](http://eslint.org/docs/rules/) for details on each parameter of the
+`.eslintrc` file.
 
 ```sh
 $ npm install eslint gulp-eslint --save-dev

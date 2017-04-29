@@ -1,13 +1,9 @@
 # Unit testing in Node.js
 
-**Published at**: https://pages.18f.gov/unit-testing-node/
-by [18F Edu](https://pages.18f.gov/edu/)
+[![Build Status](https://travis-ci.org/mbland/unit-testing-node.svg?branch=master)](https://travis-ci.org/mbland/unit-testing-node)
 
-[![Build Status](https://travis-ci.org/18F/unit-testing-node.svg?branch=18f-pages-staging)](https://travis-ci.org/18F/unit-testing-node)
-
-This exercise will walk you through writing a small
-[Node.js](https://nodejs.org/) application and writing unit tests for it. You
-will learn how to:
+This exercise will walk you through writing a small [Node.js][] application and
+writing unit tests for it. You will learn how to:
 
 - structure your code to separate concerns effectively, which maximizes
   readability, maintainability, and testability
@@ -25,48 +21,40 @@ how to create directories and files on the command line of a terminal program.
 **Docker users**: Ensure you have `docker` and `docker-machine` installed. Run
 `./docker-startup.sh` to build and run the docker image and open your web
 browser to appropriate web address. You may have to refresh after the server
-finally starts. See [the Docker chapter of the 18F Development Environment
-Standardization Guide](https://pages.18f.gov/dev-environment-standardization/virtualization/docker/)
-for more troubleshooting help.
+finally starts.
 
-**OS X users**: Consider using [Homebrew](http://brew.sh/) to install the
-software described below.
+**OS X users**: Consider using [Homebrew][] to install the software described
+below.
 
-1. Install [Node.js](https://nodejs.org/) version 4.2 or greater on your
-   system. You can see if it is already installed by running `node -v` in a
-   terminal window. See the
-   [JavaScript chapter](https://pages.18f.gov/dev-environment-standardization/languages/javascript/)
-   of the 18F Development Environment Standardization Guide for installation
-   options and instructions.
+1. Install [Node.js][] on your system. This package requires
+   version 4.2 or greater or version 5 or greater. You may wish to first install
+   a version manager such as [nvm][] to manage and install different Node.js
+   versions.
 
-1. Install [Ruby](https://www.ruby-lang.org/) version 2.2.3 or greater on your
-   system. You can see if it is already installed by running `ruby -v` in a
-   terminal window. See the
-   [Ruby chapter](https://pages.18f.gov/dev-environment-standardization/languages/ruby/)
-   of the 18F Development Environment Standardization Guide for installation
-   options and instructions.
+1. Install [Ruby][] version 2.2.3 or greater on your system. You can see if it
+   is already installed by running `ruby -v` in a terminal window. You may wish
+   to first install a version manager such as [rbenv][] to manage and install
+   different Ruby versions.
 
    *Why Ruby?* The `./go` script mentioned below is written in Ruby. The
-   content is published and hosted locally using
-   [Jekyll](https://jekyllrb.com), a Ruby application.
+   content is published and hosted locally using [Jekyll][], a Ruby application.
 
-1. Install [git](https://git-scm.com/downloads) if you do not have it
-   installed already.
+1. Install [git][] if you do not have it installed already.
 
 1. Clone this repository and change into the working directory by running:
    ```bash
-   $ git clone https://github.com/18F/unit-testing-node.git
+   $ git clone https://github.com/mbland/unit-testing-node.git
    $ cd unit-testing-node
    ```
 
 1. Run `./go serve` to serve the site locally.
 
    The `./go` script will check that your Ruby version is supported, install
-   the [Bundler gem](http://bundler.io/) if it is not yet installed, install
-   all the gems needed by the exercise website, and launch a running instance
-   on `http://localhost:4000/`.
+   the [Bundler gem][Bundler] if it is not yet installed, install all the gems
+   needed by the exercise website, and launch a running instance on
+   `http://localhost:4000/`.
 
-1. Visit [http://localhost:4000/](http://localhost:4000/) in your browser.
+1. Visit http://localhost:4000/ in your browser.
 
 ## Developing
 
@@ -182,8 +170,7 @@ syntax to allow running a subset of tests matching a regular expression:
 $ npm test -- --grep '^Config '
 ```
 
-Alternatively, if you want to use [`gulp`](https://www.npmjs.com/package/gulp)
-directly:
+Alternatively, if you want to use [gulp][] directly:
 
 ```bash
 $ npm install -g gulp
@@ -193,30 +180,34 @@ $ gulp test-all --grep '^Config '
 
 ### `.eslintrc` configuration
 
-This project uses [ESLint](http://eslint.org/) for static analysis per the
-[18F Compliance Toolkit](https://github.com/18F/compliance-toolkit) and the
-[18F Before you ship guide](https://pages.18f.gov/before-you-ship/security/static-analysis/#javascript).
-See the [ESLint configuration user guide](http://eslint.org/docs/user-guide/configuring)
-and [ESLint rules guide](http://eslint.org/docs/rules/) for details on each
-parameter of the [`.eslintrc`](.eslintrc) file.
-
-### Submit your changes!
-
-If you'd like to contribute to this repository, please follow our
-[CONTRIBUTING guidelines](./CONTRIBUTING.md).
+This project uses [ESLint][] for static analysis. See the [ESLint configuration
+user guide][ESLint user] and [ESLint rules guide][ESLint rules] for details on
+each parameter of the [`.eslintrc`](.eslintrc) file.
 
 ### Open Source License
 
 This software is made available as [Open Source software][oss-def] under the
-[ISC License][].  For the text of the license, see the [LICENSE](LICENSE.md)
+[ISC License][ISC].  For the text of the license, see the [LICENSE](LICENSE.md)
 file.
 
-[oss-def]:     https://opensource.org/osd-annotated
-[isc license]: https://www.isc.org/downloads/software-support-policy/isc-license/
 
 ### Prior work
 
 This is derived from the original [18F/unit-testing-node][utn-old]
 implementation.
 
-[utn-old]: https://github.com/18F/unit-testing-node
+[Node.js]:      https://nodejs.org/
+[Homebrew]:     http://brew.sh/
+[nvm]:          https://github.com/creationix/nvm
+[Ruby]:         https://www.ruby-lang.org/
+[rbenv]:        https://github.com/rbenv/rbenv
+[Jekyll]:       https://jekyllrb.com/
+[git]:          https://git-scm.com/downloads
+[Bundler]:      http://bundler.io/
+[gulp]:         https://www.npmjs.com/package/gulp
+[ESLint]:       http://eslint.org/
+[ESLint user]:  http://eslint.org/docs/user-guide/configuring
+[ESLint rules]: http://eslint.org/docs/rules
+[oss-def]:      https://opensource.org/osd-annotated
+[ISC]:          https://www.isc.org/downloads/software-support-policy/isc-license/
+[utn-old]:      https://github.com/18F/unit-testing-node

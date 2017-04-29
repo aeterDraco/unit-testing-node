@@ -181,7 +181,7 @@ running `npm test`. To limit the output to just the `Config` tests, run it as
 ```sh
 $ npm test -- --grep '^Config '
 
-> 18f-unit-testing-node@0.0.0 test .../unit-testing-node
+> mbland-unit-testing-node@0.0.0 test .../unit-testing-node
 > gulp test "--grep" "^Config "
 
 [12:39:51] Using gulpfile .../unit-testing-node/gulpfile.js
@@ -223,7 +223,7 @@ Now when you run `npm test`, you should see something like this:
 ```sh
 $ npm test -- --grep Config
 
-> 18f-unit-testing-node@0.0.0 test .../unit-testing-node
+> mbland-unit-testing-node@0.0.0 test .../unit-testing-node
 > gulp test "--grep" "Config"
 
 
@@ -675,7 +675,7 @@ By this point, all of the `Config` tests should be passing:
 ```sh
 $ npm test -- --grep '^Config '
 
-> 18f-unit-testing-node@0.0.0 test .../unit-testing-node
+> mbland-unit-testing-node@0.0.0 test .../unit-testing-node
 > gulp test "--grep" "^Config "
 
 [18:00:58] Using gulpfile .../unit-testing-node/gulpfile.js
