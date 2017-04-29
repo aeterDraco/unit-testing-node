@@ -126,7 +126,7 @@ the `Rule` tests, run it as `npm test -- --grep '^Rule '`:
 ```sh
 $ npm test -- --grep '^Rule '
 
-> 18f-unit-testing-node@0.0.0 test .../unit-testing-node
+> mbland-unit-testing-node@0.0.0 test .../unit-testing-node
 > gulp test "--grep" "^Rule "
 
 [17:24:28] Using gulpfile .../unit-testing-node/gulpfile.js
@@ -154,7 +154,7 @@ Running the test again should produce these results:
 ```sh
 $ npm test -- --grep '^Rule '
 
-> 18f-unit-testing-node@0.0.0 test .../unit-testing-node
+> mbland-unit-testing-node@0.0.0 test .../unit-testing-node
 > gulp test "--grep" "^Rule "
 
 [17:26:57] Using gulpfile .../unit-testing-node/gulpfile.js
@@ -466,7 +466,7 @@ from one of the channelNames'` fails.
 ```sh
 $ npm test -- --grep '^Rule '
 
-> 18f-unit-testing-node@0.0.0 test .../unit-testing-node
+> mbland-unit-testing-node@0.0.0 test .../unit-testing-node
 > gulp test "--grep" "^Rule "
 
 [17:01:41] Using gulpfile .../unit-testing-node/gulpfile.js
@@ -529,7 +529,7 @@ By this point, all of the `Rule` tests should be passing:
 ```sh
 $ npm test -- --grep '^Rule '
 
-> 18f-unit-testing-node@0.0.0 test .../unit-testing-node
+> mbland-unit-testing-node@0.0.0 test .../unit-testing-node
 > gulp test "--grep" "^Rule "
 
 [17:11:05] Using gulpfile .../unit-testing-node/gulpfile.js

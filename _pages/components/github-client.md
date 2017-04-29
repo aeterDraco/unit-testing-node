@@ -251,7 +251,7 @@ the example code:
 
 ```json
 {
-  "name": "18f-unit-testing-node",
+  "name": "mbland-unit-testing-node",
   "version": "0.0.0"
 }
 ```
@@ -404,7 +404,7 @@ good idea, too.) Now run just the `GitHubClient` tests:
 ```sh
 $ npm test -- --grep '^GitHubClient '
 
-> 18f-unit-testing-node@0.0.0 test .../unit-testing-node
+> mbland-unit-testing-node@0.0.0 test .../unit-testing-node
 > gulp test "--grep" "^GitHubClient "
 
 [14:18:29] Using gulpfile .../unit-testing-node/gulpfile.js
@@ -440,8 +440,8 @@ following constants and the `metadata` factory function to
 ```js
 exports = module.exports = {
   // ...existing constants...
-  PERMALINK: 'https://18f.slack.com/archives/handbook/p1360782804083113',
-  ISSUE_URL: 'https://github.com/18F/handbook/issues/1',
+  PERMALINK: 'https://mbland.slack.com/archives/handbook/p1360782804083113',
+  ISSUE_URL: 'https://github.com/mbland/handbook/issues/1',
 
   // ...existing implementation...
   // Don't forget to add a comma after the previous item in the object!
@@ -526,7 +526,7 @@ At this point, run your test:
 ```sh
 $ npm test -- --grep '^GitHubClient '
 
-> 18f-unit-testing-node@0.0.0 test .../unit-testing-node
+> mbland-unit-testing-node@0.0.0 test .../unit-testing-node
 > gulp test "--grep" "^GitHubClient "
 
 [14:40:31] Using gulpfile .../unit-testing-node/gulpfile.js
@@ -567,7 +567,7 @@ test assertion and run the test to see what happens:
 ```sh
 $ npm test -- --grep '^GitHubClient '
 
-> 18f-unit-testing-node@0.0.0 test .../unit-testing-node
+> mbland-unit-testing-node@0.0.0 test .../unit-testing-node
 > gulp test "--grep" "^GitHubClient "
 
 [14:45:58] Using gulpfile .../unit-testing-node/gulpfile.js
@@ -773,7 +773,7 @@ Because the interaction with the GitHub API is limited, you can write a
   setResponse = function(statusCode, payload) {
     var metadata = helpers.metadata();
 
-    githubApiServer.urlsToResponses['/repos/18F/handbook/issues'] = {
+    githubApiServer.urlsToResponses['/repos/mbland/handbook/issues'] = {
       expectedParams: {
         title: metadata.title,
         body: metadata.url
@@ -797,7 +797,7 @@ succeeds:
 ```sh
 $ npm test -- --grep '^GitHubClient'
 
-> 18f-unit-testing-node@0.0.0 test .../unit-testing-node
+> mbland-unit-testing-node@0.0.0 test .../unit-testing-node
 > gulp test "--grep" "^GitHubClient"
 
 [12:08:36] Using gulpfile .../unit-testing-node/gulpfile.js
@@ -815,7 +815,7 @@ $ npm test -- --grep '^GitHubClient'
   1) GitHubClient should fail to make a request if the server is down:
      AssertionError: expected promise to be rejected with an error including
      'failed to make GitHub API request:' but got 'Error: received 500
-     response from GitHub API: unexpected URL: /repos/18F/handbook/issues'
+     response from GitHub API: unexpected URL: /repos/mbland/handbook/issues'
 
 
 
@@ -849,7 +849,7 @@ Confirm that both tests pass:
 ```sh
 $ npm test -- --grep '^GitHubClient '
 
-> 18f-unit-testing-node@0.0.0 test .../unit-testing-node
+> mbland-unit-testing-node@0.0.0 test .../unit-testing-node
 > gulp test "--grep" "^GitHubClient "
 
 [10:05:16] Using gulpfile .../unit-testing-node/gulpfile.js
@@ -921,7 +921,7 @@ By this point, all of the `GitHubClient` tests should be passing:
 ```sh
 $ npm test -- --grep '^GitHubClient '
 
-> 18f-unit-testing-node@0.0.0 test .../unit-testing-node
+> mbland-unit-testing-node@0.0.0 test .../unit-testing-node
 > gulp test "--grep" "^GitHubClient "
 
 [12:17:55] Using gulpfile .../unit-testing-node/gulpfile.js

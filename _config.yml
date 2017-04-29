@@ -1,5 +1,6 @@
-markdown: redcarpet
 name: Unit testing in Node.js
+baseurl:
+markdown: redcarpet
 exclude:
 - CONTRIBUTING.md
 - Gemfile
@@ -19,12 +20,12 @@ sass:
 
 # Author/Organization info to be displayed in the templates
 author:
-  name: 18F
-  url: https://18f.gsa.gov
+  name: Mike Bland
+  url: 'https://mike-bland.com'
 
 # Point the logo URL at a file in your repo or hosted elsewhere by your organization
-logourl: /assets/img/18f-logo.png
-logoalt: 18F logo
+logourl:
+logoalt:
 
 # Navigation
 # List links that should appear in the site sidebar here
@@ -131,11 +132,11 @@ navigation:
 repos:
 - name: Unit testing in Node.js
   description: Main repository
-  url: https://github.com/18F/unit-testing-node
+  url: https://github.com/mbland/unit-testing-node
 
 back_link:
-  url: "https://pages.18f.gov/edu/"
-  text: Return to 18F Edu
+  url: "https://mike-bland.com/"
+  text: "Return to Mike Bland's site"
 
 google_analytics_ua: UA-48605964-19
 
@@ -148,7 +149,7 @@ defaults:
 - scope:
     path: ""
   values:
-    layout: "guides_style_18f_default"
+    layout: "guides_style_mbland_default"
 
 # Configuration for jekyll_pages_api_search plugin gem.
 jekyll_pages_api_search:

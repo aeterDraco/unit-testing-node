@@ -7,7 +7,7 @@ containing the clone, and install everything necessary for this exercise via
 the following commands:
 
 ```shell
-$ git clone https://github.com/18F/unit-testing-node.git
+$ git clone https://github.com/mbland/unit-testing-node.git
 $ cd unit-testing-node
 $ npm install
 ```
@@ -18,10 +18,10 @@ output should look similar to the below:
 ```shell
 $ npm test
 
-> 18f-unit-testing-node@0.0.0 test /Users/michaelbland/src/18F/unit-testing-node
+> mbland-unit-testing-node@0.0.0 test /Users/mbland/src/mbland/unit-testing-node
 > gulp test
 
-[16:32:07] Using gulpfile ~/src/18F/unit-testing-node/gulpfile.js
+[16:32:07] Using gulpfile ~/src/mbland/unit-testing-node/gulpfile.js
 [16:32:07] Starting 'test'...
 
 

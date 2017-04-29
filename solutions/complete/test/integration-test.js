@@ -23,8 +23,8 @@ describe('Integration test', function() {
 
   before(function(done) {
     apiStubServer = new ApiStubServer();
-    process.env.HUBOT_SLACK_TOKEN = '<18F-github-token>';
-    process.env.HUBOT_GITHUB_TOKEN = '<18F-github-token>';
+    process.env.HUBOT_SLACK_TOKEN = '<mbland-github-token>';
+    process.env.HUBOT_GITHUB_TOKEN = '<mbland-github-token>';
     config = helpers.baseConfig();
     config.slackApiBaseUrl = apiStubServer.address() + '/slack/';
     config.githubApiBaseUrl = apiStubServer.address() + '/github/';
@@ -63,7 +63,7 @@ describe('Integration test', function() {
       getChannelByID: function() {
         return { name: 'handbook' };
       },
-      team: { domain: '18f' }
+      team: { domain: 'mbland' }
     };
     apiStubServer.urlsToResponses = apiServerDefaults();
   });
@@ -81,7 +81,7 @@ describe('Integration test', function() {
         statusCode: 200,
         payload: helpers.messageWithReactions()
       },
-      '/github/repos/18F/handbook/issues': {
+      '/github/repos/mbland/handbook/issues': {
         expectedParams: {
           title: metadata.title,
           body: metadata.url
@@ -184,14 +184,14 @@ describe('Integration test', function() {
 
   it('should fail to create a GitHub issue', function() {
     var payload = { message: 'test failure' },
-        url = '/github/repos/18F/handbook/issues',
+        url = '/github/repos/mbland/handbook/issues',
         response = apiStubServer.urlsToResponses[url];
 
     response.statusCode = 500;
     response.payload = payload;
     return sendReaction(helpers.REACTION).should.be.fulfilled.then(function() {
       var errorReply = 'failed to create a GitHub issue in ' +
-            '18F/handbook: received 500 response from GitHub API: ' +
+            'mbland/handbook: received 500 response from GitHub API: ' +
             JSON.stringify(payload),
           logMessages;
 

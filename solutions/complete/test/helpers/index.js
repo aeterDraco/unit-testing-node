@@ -10,8 +10,8 @@ exports = module.exports = {
   USER_ID: 'U5150OU812',
   CHANNEL_ID: 'C5150OU812',
   TIMESTAMP: '1360782804.083113',
-  PERMALINK: 'https://18f.slack.com/archives/handbook/p1360782804083113',
-  ISSUE_URL: 'https://github.com/18F/handbook/issues/1',
+  PERMALINK: 'https://mbland.slack.com/archives/handbook/p1360782804083113',
+  ISSUE_URL: 'https://github.com/mbland/handbook/issues/1',
   MESSAGE_ID: 'C5150OU812:1360782804.083113',
 
   baseConfig: function() {

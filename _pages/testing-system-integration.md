@@ -99,8 +99,8 @@ OK
 
 $ cd exercise
 $ PATH=$PATH:../node_modules/.bin hubot -t
-[Mon Jan 25 2016 20:34:50 GMT-0500 (EST)] INFO 18f-unit-testing-node: reading configuration from config/slack-github-issues.json
-[Mon Jan 25 2016 20:34:50 GMT-0500 (EST)] INFO 18f-unit-testing-node: registered receiveMiddleware
+[Mon Jan 25 2016 20:34:50 GMT-0500 (EST)] INFO mbland-unit-testing-node: reading configuration from config/slack-github-issues.json
+[Mon Jan 25 2016 20:34:50 GMT-0500 (EST)] INFO mbland-unit-testing-node: registered receiveMiddleware
 OK
 
 $ cd ..
@@ -276,7 +276,7 @@ By this point, all of the smoke tests should be passing:
 ```sh
 $ npm test -- --grep '^Smoke test '
 
-> 18f-unit-testing-node@0.0.0 test .../unit-testing-node
+> mbland-unit-testing-node@0.0.0 test .../unit-testing-node
 > gulp test "--grep" "^Smoke test "
 
 [20:55:11] Using gulpfile .../unit-testing-node/gulpfile.js

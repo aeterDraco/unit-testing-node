@@ -182,7 +182,7 @@ Now run the test. You should see this:
 ```sh
 $ npm test -- --grep '^Logger '
 
-> 18f-unit-testing-node@0.0.0 test .../unit-testing-node
+> mbland-unit-testing-node@0.0.0 test .../unit-testing-node
 > gulp test "--grep" "^Logger "
 
 [20:56:26] Using gulpfile .../unit-testing-node/gulpfile.js
@@ -202,7 +202,7 @@ $ npm test -- --grep '^Logger '
       + expected - actual
 
        [
-         "18f-unit-testing-node:"
+         "mbland-unit-testing-node:"
       -  [null]
          "this"
          "is"
@@ -425,7 +425,7 @@ By this point, all of the `Logger` tests should be passing:
 ```sh
 $ npm test -- --grep '^Logger'
 
-> 18f-unit-testing-node@0.0.0 test .../unit-testing-node
+> mbland-unit-testing-node@0.0.0 test .../unit-testing-node
 > gulp test "--grep" "^Logger"
 
 [21:21:45] Using gulpfile .../unit-testing-node/gulpfile.js

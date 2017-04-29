@@ -1,7 +1,7 @@
 {
-  "name": "18f-unit-testing-node",
+  "name": "mbland-unit-testing-node",
   "version": "0.0.0",
-  "description": "Packages necessary for the 18F unit testing exercise.",
+  "description": "Packages necessary for the unit testing exercise.",
   "main": "index.js",
   "scripts": {
     "test": "gulp test",
@@ -11,14 +11,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/18F/unit-testing-node/"
+    "url": "https://github.com/mbland/unit-testing-node/"
   },
   "keywords": [
-    "18F",
     "testing"
   ],
-  "author": "Mike Bland <michael.bland@gsa.gov> (https://18f.gsa.gov/)",
-  "license": "CC0-1.0",
+  "author": "Mike Bland <mbland@acm.org> (https://mike-bland.com/)",
+  "license": "ISC",
   "devDependencies": {
     "chai": "^3.4.1",
     "chai-as-promised": "^5.1.0",

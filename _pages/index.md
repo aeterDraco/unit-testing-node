@@ -20,12 +20,11 @@ environment. Specifically, it expects that you're familiar with the basics of
 how to create directories and files on the command line of a terminal program.
 
 This exercise also assumes that you have already installed Node.js version 4.2
-or greater and Ruby version 2.2.3 or greater. See the
-[JavaScript section](https://pages.18f.gov/dev-environment-standardization/languages/javascript/)
-and the
-[Ruby section](https://pages.18f.gov/dev-environment-standardization/languages/ruby/)
-of our Development Environment Standardization Guide for instructions on how
-to set up Node.js and Ruby development environments.
+or greater and Ruby version 2.2.3 or greater. See the [Installation section of
+the README][installation] for instructions on how to set up Node.js and Ruby
+development environments.
+
+[installation]: https://github.com/mbland/slack-github-issues#Installation
 
 **OS X users**: Consider using [Homebrew](http://brew.sh/) to install this
 software.

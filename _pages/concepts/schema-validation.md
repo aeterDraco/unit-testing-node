@@ -47,7 +47,7 @@ validation is therefore an application of [the principle of least
 astonishment](https://en.wikipedia.org/wiki/Principle_of_least_astonishment).
 
 For example, in the [full implementation of
-`hubot-slack-github-issues`](https://github.com/18F/hubot-slack-github-issues/),
+`slack-github-issues`](https://github.com/mbland/slack-github-issues/),
 the rules specified by the configuration object must be unique in terms of
 `reactionName`, `githubRepository`, and `channelNames`. There may be at most
 one rule for each `reactionName` that does not specify `channelNames`,
@@ -75,7 +75,7 @@ validation is also an application of [the principle of least
 astonishment](https://en.wikipedia.org/wiki/Principle_of_least_astonishment).
 
 Again, in [full implementation of
-`hubot-slack-github-issues`](https://github.com/18F/hubot-slack-github-issues/),
+`slack-github-issues`](https://github.com/mbland/slack-github-issues/),
 `Config` validation enforces that each rule is sorted by `reactionName`,
 then by the presence of `channelNames`, and then by `githubRepository`. In
 each individual rule, each `channelNames` member must also be sorted. This
